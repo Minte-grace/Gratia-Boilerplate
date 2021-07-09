@@ -1,7 +1,7 @@
-import api from '@/Services'
-import handleError from '@/Services/utils/handleError'
+import api from '../../Services'
+import handleError from '../utils/handleError'
 
-export default async (userId: string) => {
+export default async userId => {
   if (!userId) {
     return handleError({ message: 'User ID is required' })
   }

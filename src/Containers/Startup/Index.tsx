@@ -15,10 +15,11 @@ const IndexStartupContainer = () => {
   }, [dispatch]);
 
   return (
-    <View style={{}}>
+    <View style={{backgroundColor:'red'}}>
       <Brand />
       <ActivityIndicator size={"large"} style={{}} />
-      <Text style={{}}>{t("welcome")}</Text>
+      <Text>jhvhjhvjvjhv</Text>
+      <Text style={{}}>{t("welcome")}gcgchgchgvhgvh</Text>
     </View>
   );
 };

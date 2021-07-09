@@ -1,4 +1,4 @@
-import { palette } from "./palette"
+import { palette } from "./Palette"
 
 /**
  * Roles for colors.  Prefer using these over the palette.  It makes it easier

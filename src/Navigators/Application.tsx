@@ -1,47 +1,45 @@
 import React, { useEffect, useState, FunctionComponent } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { IndexStartupContainer } from '@/Containers'
+import { IndexStartupContainer } from '../Containers'
 import { useSelector } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
-import { navigationRef } from '@/Navigators/Root'
+import { navigationRef } from '../Navigators/Root'
 import { SafeAreaView, StatusBar } from 'react-native'
-import { useTheme } from '@/Theme'
-import { StartupState } from '@/Store/Startup'
+import { StartupState } from "../Store/Startup";
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
-let MainNavigator: FunctionComponent | null
+let MainNavigator: FunctionComponent | null;
 
 // @refresh reset
 const ApplicationNavigator = () => {
-  const { Layout, darkMode, NavigationTheme } = useTheme()
-  const { colors } = NavigationTheme
-  const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
+
+  const [isApplicationLoaded, setIsApplicationLoaded] = useState(false);
   const applicationIsLoading = useSelector(
-    (state: { startup: StartupState }) => state.startup.loading,
-  )
+    (state: { startup: StartupState }) => state.startup.loading
+  );
 
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {
-      MainNavigator = require('@/Navigators/Main').default
-      setIsApplicationLoaded(true)
+      MainNavigator = require("../Navigators/Main").default;
+      setIsApplicationLoaded(true);
     }
-  }, [applicationIsLoading])
+  }, [applicationIsLoading]);
 
   // on destroy needed to be able to reset when app close in background (Android)
   useEffect(
     () => () => {
-      setIsApplicationLoaded(false)
-      MainNavigator = null
+      setIsApplicationLoaded(false);
+      MainNavigator = null;
     },
-    [],
+    []
   )
 
   return (
-    <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>
-      <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
-        <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
-        <Stack.Navigator headerMode={'none'}>
+    <SafeAreaView >
+      <NavigationContainer  ref={navigationRef}>
+        <StatusBar />
+        <Stack.Navigator>
           <Stack.Screen name="Startup" component={IndexStartupContainer} />
           {isApplicationLoaded && MainNavigator != null && (
             <Stack.Screen
