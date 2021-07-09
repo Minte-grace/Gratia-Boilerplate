@@ -1,54 +1,12 @@
-/**
- * This file contains all application's style relative to fonts
- */
-import { StyleSheet } from 'react-native'
-import { ThemeVariables, ThemeFonts } from '@/Theme/theme.type'
+// import * as Font from "expo-font"
 
-/**
- *
- * @param Theme can be spread like {Colors, NavigationColors, Gutters, Layout, Common, ...args}
- * @return {*}
- */
-export default function ({ FontSize, Colors }: ThemeVariables): ThemeFonts {
-  return StyleSheet.create({
-    textSmall: {
-      fontSize: FontSize.small,
-      color: Colors.text,
-    },
-    textRegular: {
-      fontSize: FontSize.regular,
-      color: Colors.text,
-    },
-    textLarge: {
-      fontSize: FontSize.large,
-      color: Colors.text,
-    },
-    titleSmall: {
-      fontSize: FontSize.small * 2,
-      fontWeight: 'bold',
-      color: Colors.text,
-    },
-    titleRegular: {
-      fontSize: FontSize.regular * 2,
-      fontWeight: 'bold',
-      color: Colors.text,
-    },
-    titleLarge: {
-      fontSize: FontSize.large * 2,
-      fontWeight: 'bold',
-      color: Colors.text,
-    },
-    textCenter: {
-      textAlign: 'center',
-    },
-    textJustify: {
-      textAlign: 'justify',
-    },
-    textLeft: {
-      textAlign: 'left',
-    },
-    textRight: {
-      textAlign: 'right',
-    },
-  })
-}
+export const initFonts = async () => {
+    // Refer to ./assets/fonts/custom-fonts.md for instructions.
+    // ...
+    // Welcome back! Just uncomment this and replace/append with your font file names!
+    // ⬇
+    // await Font.loadAsync({
+    //   Montserrat: require("./Montserrat-Regular.ttf"),
+    //   "Montserrat-Regular": require("./Montserrat-Regular.ttf"),
+    // })
+  }
