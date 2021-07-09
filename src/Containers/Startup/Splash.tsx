@@ -5,7 +5,7 @@ import InitStartup from "../../Store/Startup/Init";
 import { useTranslation } from "react-i18next";
 import { Brand } from "../../Components";
 
-const IndexStartupContainer = () => {
+const Splash = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const IndexStartupContainer = () => {
   }, [dispatch]);
 
   return (
-    <View style={{backgroundColor:'red'}}>
+    <View style={{ backgroundColor: "red" }}>
       <Brand />
       <ActivityIndicator size={"large"} style={{}} />
       <Text>jhvhjhvjvjhv</Text>
@@ -24,4 +24,4 @@ const IndexStartupContainer = () => {
   );
 };
 
-export default IndexStartupContainer;
+export default Splash;

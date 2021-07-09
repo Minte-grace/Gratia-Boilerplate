@@ -1,11 +1,12 @@
 import React, { useEffect, useState, FunctionComponent } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { IndexStartupContainer } from '../Containers'
+import { Splash } from '../Containers'
 import { useSelector } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
-import { navigationRef } from '../Navigators/Root'
+import { navigationRef } from './Root'
 import { SafeAreaView, StatusBar } from 'react-native'
 import { StartupState } from "../Store/Startup";
+import HomeScreen from '../Containers/Home/HomeScreen'
 
 const Stack = createStackNavigator();
 
@@ -36,23 +37,24 @@ const ApplicationNavigator = () => {
   )
 
   return (
-    <SafeAreaView >
+    // <SafeAreaView >
       <NavigationContainer  ref={navigationRef}>
         <StatusBar />
         <Stack.Navigator>
-          <Stack.Screen name="Startup" component={IndexStartupContainer} />
+          <Stack.Screen name="Splash" component={Splash} />
           {isApplicationLoaded && MainNavigator != null && (
             <Stack.Screen
               name="Main"
               component={MainNavigator}
               options={{
                 animationEnabled: false,
+                headerShown: false,
               }}
             />
           )}
         </Stack.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    // </SafeAreaView>
   )
 }
 

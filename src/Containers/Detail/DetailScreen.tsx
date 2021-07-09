@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const HomeScreen = () => {
+const Detail = () => {
   return (
     <View
       style={{
@@ -10,11 +10,11 @@ const HomeScreen = () => {
         justifyContent: "center",
       }}
     >
-      <Text>Home screen</Text>
+      <Text>Detail screen</Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default Detail;
 
 const styles = StyleSheet.create({});
